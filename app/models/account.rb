@@ -44,9 +44,12 @@ class Account < ApplicationRecord
   
   devise :database_authenticatable, :async, :rememberable, :trackable, :lockable,
     :omniauthable, :validatable, omniauth_providers: [:google_oauth2, :facebook]
+  
+  has_many :records
+  has_many :histories
 
   enum role: { free: 0, bacsic: 1, advanced: 2 }
-
+  
   before_save :set_user_name
 
   def self.from_omniauth auth

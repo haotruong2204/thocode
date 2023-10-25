@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_10_24_144153) do
+ActiveRecord::Schema[7.0].define(version: 2023_10_24_173222) do
   create_table "accounts", charset: "utf8mb4", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -54,6 +54,40 @@ ActiveRecord::Schema[7.0].define(version: 2023_10_24_144153) do
     t.index ["slug", "sluggable_type", "scope"], name: "index_friendly_id_slugs_on_slug_and_sluggable_type_and_scope", unique: true, length: { slug: 70, scope: 70 }
     t.index ["slug", "sluggable_type"], name: "index_friendly_id_slugs_on_slug_and_sluggable_type", length: { slug: 140 }
     t.index ["sluggable_type", "sluggable_id"], name: "index_friendly_id_slugs_on_sluggable_type_and_sluggable_id"
+  end
+
+  create_table "histories", charset: "utf8mb4", force: :cascade do |t|
+    t.integer "type_history"
+    t.string "title"
+    t.text "description"
+    t.integer "account_id"
+    t.integer "record_id"
+    t.integer "plan_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "kanjis", charset: "utf8mb4", force: :cascade do |t|
+    t.string "on"
+    t.string "kun"
+    t.text "svg"
+    t.string "yin_han"
+    t.string "meaning"
+    t.string "chinese_character"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "records", charset: "utf8mb4", force: :cascade do |t|
+    t.integer "account_id"
+    t.integer "type_record"
+    t.text "kanji_list"
+    t.string "title"
+    t.string "slug"
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["slug"], name: "index_records_on_slug", unique: true
   end
 
 end

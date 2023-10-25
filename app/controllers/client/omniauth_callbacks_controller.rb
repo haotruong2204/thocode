@@ -13,11 +13,11 @@ class Client::OmniauthCallbacksController < Devise::OmniauthCallbacksController
     else
       @account.email = @account.uid if @account.email.blank?
       @account.save(validate: false)
-      # @account.histories.create(
-      #   type_history: :create_account,
-      #   title: "Chào mừng bạn đến với hệ thống!",
-      #   description: "Chúc bạn có những trải nghiệm thú vị trong hành trình học tiếng Nhật.",
-      # )
+      @account.histories.create(
+        type_history: :create_account,
+        title: "Chào mừng bạn đến với hệ thống!",
+        description: "Chúc bạn có những trải nghiệm thú vị trong hành trình học tiếng Nhật.",
+      )
     end
     @account.update last_sign_in_at: Time.zone.now
     sign_in_and_redirect @account, event: :authentication
