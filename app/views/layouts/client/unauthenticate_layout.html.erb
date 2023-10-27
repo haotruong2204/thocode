@@ -35,8 +35,7 @@
     </style>
     <%= javascript_importmap_tags %>
   </head>
-  <body id="kt_body"
-    class="app-blank bgi-size-cover bgi-attachment-fixed bgi-position-center">
+  <body id="kt_body" class="app-blank bgi-size-cover bgi-attachment-fixed bgi-position-center">
      <script>
       var defaultThemeMode = "light";
       var themeMode;
@@ -50,11 +49,6 @@
           } else {
             themeMode = defaultThemeMode;
           }
-        }
-        if (themeMode === "system") {
-          themeMode = window.matchMedia("(prefers-color-scheme: dark)").matches
-            ? "dark"
-            : "light";
         }
         document.documentElement.setAttribute("data-bs-theme", themeMode);
       }
