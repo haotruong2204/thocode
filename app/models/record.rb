@@ -22,6 +22,7 @@ class Record < ApplicationRecord
 
   strip_attributes
 
+  has_one :history
   belongs_to :account
 
   ATTRS = [:kanji_list, :title, :type_record].freeze

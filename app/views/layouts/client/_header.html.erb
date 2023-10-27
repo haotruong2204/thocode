@@ -34,9 +34,12 @@
           </div>
         </div>
         <div class="app-navbar-item ms-1 ms-lg-3">
-          <div class="app-navbar-item btn btn-icon btn-circle btn-color-gray-500 btn-active-color-primary btn-custom shadow-xs bg-body the-mode">
-            <a href="javascript:void(0)"
-              class="btn btn-icon btn-custom btn-icon-muted btn-active-light btn-active-color-primary w-35px h-35px js-show-box">
+          <div class="app-navbar-item btn btn-icon btn-circle btn-color-gray-500 btn-active-color-primary btn-custom shadow-xs bg-body">
+            <a href="#"
+              class="btn btn-icon btn-custom btn-icon-muted btn-active-light btn-active-color-primary w-35px h-35px"
+              data-kt-menu-trigger="{default:'click', lg: 'hover'}"
+              data-kt-menu-attach="parent"
+              data-kt-menu-placement="bottom-end" >
               <i class="ki-duotone ki-night-day theme-light-show fs-1" >
                 <span class="path1"></span><span class="path2"></span>
                 <span class="path3"></span><span class="path4"></span>
@@ -49,11 +52,14 @@
                 <span class="path2"></span>
               </i>
             </a>
-            <div class="the-mode__box js-the-box hidden menu menu-sub menu-sub-dropdown menu-column menu-rounded menu-title-gray-700 menu-icon-gray-500 menu-active-bg menu-state-color fw-semibold py-4 fs-base w-150px">
+            <div class="menu menu-sub menu-sub-dropdown menu-column menu-rounded menu-title-gray-700 menu-icon-gray-500 menu-active-bg menu-state-color fw-semibold py-4 fs-base w-150px"
+              data-kt-menu="true"
+              data-kt-element="theme-mode-menu">
               <div class="menu-item px-3 my-0">
-                <a href="javascript:void(0)"
-                  class="menu-link px-3 py-2 active"
-                  data-value="light">
+                <a href="#"
+                  class="menu-link px-3 py-2"
+                  data-kt-element="mode"
+                  data-kt-value="light">
                   <span class="menu-icon" data-kt-element="icon">
                     <i class="ki-duotone ki-night-day fs-2"
                       ><span class="path1"></span
@@ -74,9 +80,10 @@
 
               <div class="menu-item px-3 my-0">
                 <a
-                  href="javascript:void(0)"
-                  class="menu-link px-3 py-2"
-                  data-value="dark"
+                  href="#"
+                  class="menu-link px-3 py-2 active"
+                  data-kt-element="mode"
+                  data-kt-value="dark"
                 >
                   <span class="menu-icon" data-kt-element="icon">
                     <i class="ki-duotone ki-moon fs-2"

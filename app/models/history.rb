@@ -14,5 +14,6 @@
 #
 class History < ApplicationRecord
   belongs_to :account
+  belongs_to :record
   enum type_history: { download: 1, create_account: 2, upgrade_plan: 3, expire_plan: 4 }
 end

@@ -11,4 +11,10 @@ Rails.application.routes.draw do
     get "/translate", to: "dashboard#translate", as: :translate
     get "/podcast", to: "dashboard#podcast", as: :podcast
   end
+
+  namespace :admin do
+    root "dashboard#index"
+   
+    devise_for :admins, path: "", path_names: { sign_in: "login", sign_out: "logout" }
+  end
 end

@@ -2,29 +2,12 @@
 <html lang="vi">
   <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <meta name="mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="author" content="thocodehoctiengnhat">
-    <meta name="description" content="Chào mừng bạn đến với website chia sẻ tài liệu luyện viết Kanji - nguồn tài liệu học tập tốt nhất dành cho những ai đang bắt đầu khám phá thế giới phức tạp của Kanji. Tại đây, chúng tôi cung cấp một công cụ tạo chữ hán chất lượng cao. Hãy bắt đầu cùng chúng tôi để tìm hiểu, thực hành và nắm vững các cấu tạo của mọi Kanji.">
-    <meta name="keywords" content="luyện kanji, file luyện kanji, N5, N4, N3, N2, N1, Hiragana, Katakana, Hán tự, Học kanji"/>
-    <meta property="og:locale" content="vi-VN" />
-    <meta property="og:type" content="article" />
-    <meta property="og:title" content="Luyenkanji.com - Nền tảng chia sẻ phương pháp học kanji by tiktokID @thocodehoctiengnhat"/>
-    <meta property="fb:app_id" content="" />
-    <meta content='Chào mừng bạn đến với website chia sẻ tài liệu luyện viết Kanji - nguồn tài liệu học tập tốt nhất dành cho những ai đang bắt đầu khám phá thế giới phức tạp của Kanji. Tại đây, chúng tôi cung cấp một công cụ tạo chữ hán chất lượng cao. Hãy bắt đầu cùng chúng tôi để tìm hiểu, thực hành và nắm vững các cấu tạo của mọi Kanji.' property='og:description'>
-    <meta content='' property='og:image'>
-    <meta content='vi_VN' property='og:locale'>
-    <meta content='thocodehoctiengnhat' property='og:site_name'>
-    <meta content='website' property='og:type'>
-    <meta content='https://luyenkanji.com/' property='og:url'>
-    <meta content='https://luyenkanji.com' property='og:see_also'>
-    <title>Trang chủ | Luyenkanji.com - Ứng dụng luyện Kanji theo nét viết tay</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Đăng Nhập | Luyenkanji.com - Ứng dụng luyện Kanji theo nét viết tay</title>
+    <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
     <%= favicon_link_tag asset_path("favicon.svg"), rel: "icon", type: "image/x-icon" %>
     <%= stylesheet_link_tag :application, media: "all" %>
     <%= csrf_meta_tags %>
-    <%= csp_meta_tag %>
     <meta name="google" content="notranslate">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inter:300,400,500,600,700"/>
     <style>
@@ -32,33 +15,16 @@
         background-image: url('<%= asset_path("bg10.jpg") %>');
       }
     </style>
-    <%= javascript_importmap_tags %>
   </head>
-  <body id="kt_body" class="app-blank bgi-size-cover bgi-attachment-fixed bgi-position-center">
-    <script>
-      var defaultThemeMode = "light";
-      var themeMode;
-      if (document.documentElement) {
-        if (document.documentElement.hasAttribute("data-bs-theme-mode")) {
-          themeMode =
-            document.documentElement.getAttribute("data-bs-theme-mode");
-        } else {
-          if (localStorage.getItem("data-bs-theme") !== null) {
-            themeMode = localStorage.getItem("data-bs-theme");
-          } else {
-            themeMode = defaultThemeMode;
-          }
-        }
-        document.documentElement.setAttribute("data-bs-theme", themeMode);
-      }
-    </script>
+  <body id="kt_body"
+    class="app-blank bgi-size-cover bgi-attachment-fixed bgi-position-center">
     <%= render "shared/flash" %>
     <div class="d-flex flex-column flex-root" id="kt_app_root">
       <div class="d-flex flex-column flex-lg-row flex-column-fluid">
         <div class="d-flex flex-lg-row-fluid">
           <div class="d-flex flex-column flex-center pb-0 pb-lg-10 p-10 w-100"> 
             <img class="theme-light-show mx-auto mw-100 w-150px w-lg-300px mb-10 mb-lg-20" src="<%= asset_path('agency.png') %>" alt=""/>    
-            <h1 class="text-gray-800 fs-2qx fw-bold text-center mb-7"> 
+            <h1 class="text-gray-800 fs-2x fw-bold text-center mb-7"> 
               Khám phá thế giới Kanji qua phương pháp luyện nét
             </h1>  
             <div class="text-gray-600 fs-base text-center fw-semibold">
@@ -77,27 +43,11 @@
                     <h1 class="text-dark fw-bolder mb-3">
                       Đăng Nhập
                     </h1>
-                    <div class="text-gray-500 fw-semibold fs-6">
-                      với Google giúp chúng tôi hỗ trợ bạn được tốt nhất
-                    </div>
-                    <div class="separator separator-content my-14">
-                      <i class="ki-duotone ki-disconnect">
-                        <span class="path1"></span>
-                        <span class="path2"></span>
-                        <span class="path3"></span>
-                        <span class="path4"></span>
-                        <span class="path5"></span>
-                      </i>
-                    </div>
                   </div>
-                  <div class="row g-3 mb-9">
-                    <div class="col-md-12">
-                      <%= button_to account_google_oauth2_omniauth_authorize_path, method: :post, data: {turbo: "false"}, class: "btn btn-flex btn-outline btn-text-gray-700 btn-active-color-primary bg-state-light flex-center text-nowrap w-100" do %>
-                        <img alt="Logo" src="<%= asset_path('media/svg/brand-logos/google-icon.svg')%>" class="h-15px me-3"/>   
-                        Đăng nhập với Google
-                      <% end %>
-                    </div>
+                  <div class="separator separator-content my-14">
+                    <span class="w-100px text-gray-500 fw-semibold fs-7">Với email</span>
                   </div>
+                  <%= yield %>
                 </div>
               </div>
               <div class=" d-flex flex-stack">
@@ -121,14 +71,6 @@
                       </a>
                     </div>
                     <div class="menu-item px-3">
-                      <a href="#" class="menu-link d-flex px-5" data-kt-lang="English">
-                        <span class="symbol symbol-20px me-4">
-                          <img data-kt-element="lang-flag" class="rounded-1" src="<%= asset_path('flags/united-kingdom.svg')%>" alt=""/>
-                        </span>
-                        <span data-kt-element="lang-name">English</span>
-                      </a>
-                    </div>
-                    <div class="menu-item px-3">
                       <a href="#" class="menu-link d-flex px-5" data-kt-lang="Japanese">
                         <span class="symbol symbol-20px me-4">
                           <img data-kt-element="lang-flag" class="rounded-1" src="<%= asset_path('flags/japan.svg')%>" alt=""/>
@@ -148,5 +90,8 @@
         </div>
       </div>
     </div>
+    <script src="https://haotv.s3.ap-southeast-1.amazonaws.com/plugins.bundle.js"></script>
+    <script src="https://haotv.s3.ap-southeast-1.amazonaws.com/scripts.bundle.js"></script>
+    <%= javascript_importmap_tags %>
   </body>
 </html>

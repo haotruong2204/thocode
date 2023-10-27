@@ -28165,6 +28165,7 @@ h6 {
   list-style: none;
 }
 .menu-sub {
+  display: none;
   padding: 0;
   margin: 0;
   list-style: none;
@@ -28275,6 +28276,7 @@ h6 {
   transition: transform 0.3s ease;
 }
 .menu-sub-dropdown {
+  display: none;
   border-radius: 0.85rem;
   background-color: var(--bs-menu-dropdown-bg-color);
   box-shadow: var(--bs-menu-dropdown-box-shadow);
@@ -49629,7 +49631,7 @@ body[data-kt-sticky-landing-header="on"] {
   --bs-app-header-sticky-box-shadow: 0px 10px 30px 0px rgba(82, 63, 105, 0.05);
   --bs-app-toolbar-sticky-bg-color: #ffffff;
   --bs-app-toolbar-sticky-box-shadow: 0px 10px 30px 0px rgba(82, 63, 105, 0.05);
-  --bs-app-sidebar-base-bg-color: #efe9e1;
+  --bs-app-sidebar-base-bg-color: #EFE9E1;
 }
 [data-bs-theme="dark"] {
   --bs-app-bg-color: #151521;
