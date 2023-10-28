@@ -29,10 +29,9 @@ module ApplicationHelper
   end
 
   def level_of_difficult number_of_strokes
-    str = ""
-    case number_of_strokes
-    when 0..5
-      str = "
+    str = case number_of_strokes
+          when 0..5
+            "
         <div class='rating-label checked'>
           <i class='ki-outline ki-star fs-6'></i>
         </div>
@@ -49,8 +48,8 @@ module ApplicationHelper
           <i class='ki-outline ki-star fs-6'></i>
         </div>
       "
-    when 6..12
-      str = "
+          when 6..12
+            "
         <div class='rating-label checked'>
           <i class='ki-outline ki-star fs-6'></i>
         </div>
@@ -67,8 +66,8 @@ module ApplicationHelper
           <i class='ki-outline ki-star fs-6'></i>
         </div>
       "
-    when 13..18
-      str = "
+          when 13..18
+            "
         <div class='rating-label checked'>
           <i class='ki-outline ki-star fs-6'></i>
         </div>
@@ -85,8 +84,8 @@ module ApplicationHelper
           <i class='ki-outline ki-star fs-6'></i>
         </div>
       "
-    when 19..25
-      str = "
+          when 19..25
+            "
         <div class='rating-label checked'>
           <i class='ki-outline ki-star fs-6'></i>
         </div>
@@ -103,8 +102,8 @@ module ApplicationHelper
           <i class='ki-outline ki-star fs-6'></i>
         </div>
       "
-    else
-      str = "
+          else
+            "
         <div class='rating-label checked'>
           <i class='ki-outline ki-star fs-6'></i>
         </div>
@@ -121,7 +120,7 @@ module ApplicationHelper
           <i class='ki-outline ki-star fs-6'></i>
         </div>
       "
-    end
+          end
     str.html_safe
   end
 
@@ -144,5 +143,11 @@ module ApplicationHelper
       str = "dark"
     end
     str.html_safe
+  end
+
+  def show_svg path
+    File.open("app/assets/images/kanji/#{path}") do |file|
+      raw file.read
+    end
   end
 end

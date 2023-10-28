@@ -23,7 +23,7 @@ class HandleSvgService
         yin_han: kj.yin_han,
         meaning: kj.meaning,
         yin_on: kj.yin_on,
-        yin_kun: kj.yin_kun,
+        yin_kun: kj.yin_kun
       }
     end
   end

@@ -20,17 +20,17 @@ class Kanji < ApplicationRecord
   strip_attributes
 
   belongs_to :level_kanji
-  
+
   ATTRS = [:yin_kun, :meaning, :level_kanji_id, :yin_on, :yin_han].freeze
 
   # validates :yin_kun, :meaning, :yin_on, :number_of_strokes, :yin_han, presence: true
-  
+
   class << self
     def ransackable_attributes _auth_object = nil
       %w[chinese_character yin_kun meaning yin_on yin_han]
     end
 
-    def ransackable_associations(auth_object = nil)
+    def ransackable_associations _auth_object = nil
       []
     end
   end

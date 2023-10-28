@@ -8,3 +8,6 @@ import "controllers";
 import "client/widgets.bundle";
 import "client/widgets";
 import "client/custom";
+// import "kanjivg/kanjivg";
+// import "kanjivg/kanjiviewer";
+// import "kanjivg/KanjivgAnimate";

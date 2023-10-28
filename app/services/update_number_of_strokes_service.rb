@@ -5,7 +5,7 @@ require "nokogiri"
 class UpdateNumberOfStrokesService
   def handle
     list_kanji = Kanji.all
-    
+
     list_kanji.each do |kj|
       svg_file_path = Rails.root.join("app/assets/images/kanji", kj.svg)
       svg_content = File.read(svg_file_path)

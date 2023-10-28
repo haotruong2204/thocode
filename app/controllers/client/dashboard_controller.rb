@@ -6,6 +6,10 @@ class Client::DashboardController < Client::BaseController
   end
 
   def search_kanji
+    @q = Kanji.ransack(params[:q])
+    @pagy, @kanjis = pagy(@q.result.order(created_at: :desc))
+
+    @kanji = (@kanjis.last if @kanjis.count == 1)
   end
 
   def translate

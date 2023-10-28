@@ -1,0 +1,56 @@
+<div class="row">
+  <div class="col-md-5 col-xl-12 col-xxl-5">
+    <div class="row mb-7">
+      <label class="col-lg-4 fw-semibold text-muted">Hán Tự</label>
+      <div class="col-lg-8">
+        <span class="fw-bold fs-6 text-gray-800"><%= @kanji&.chinese_character %></span>
+        <span class="badge badge-success"><%= @kanji&.yin_han %></span>
+      </div>
+    </div>
+    <div class="row mb-7">
+      <label class="col-lg-4 fw-semibold text-muted">
+        Nghĩa
+      </label>
+      <div class="col-lg-8 fv-row">
+        <span class="fw-semibold text-gray-800 fs-6"><%= @kanji&.meaning %></span>
+      </div>
+    </div>
+    <div class="row mb-7">
+      <label class="col-lg-4 fw-semibold text-muted">
+        Âm Kun
+        <span class="ms-1" data-bs-toggle="tooltip" title="">
+          <i class="ki-outline ki-information fs-7"></i>
+        </span>
+      </label>
+      <div class="col-lg-8 fv-row">
+        <span class="fw-semibold text-gray-800 fs-6"><%= @kanji&.yin_kun %></span>
+      </div>
+    </div>
+    <div class="row mb-7">
+      <label class="col-lg-4 fw-semibold text-muted">
+        Âm Ôn
+        <span class="ms-1" data-bs-toggle="tooltip" title="">
+          <i class="ki-outline ki-information fs-7"></i>
+        </span>
+      </label>
+      <div class="col-lg-8 fv-row">
+        <span class="fw-semibold text-gray-800 fs-6"><%= @kanji&.yin_on %></span>
+      </div>
+    </div>
+    <div class="row mb-7">
+      <label class="col-lg-4 fw-semibold text-muted">
+        Số nét
+      </label>
+      <div class="col-lg-8 fv-row">
+        <span class="fw-semibold text-gray-800 fs-6"><%= @kanji&.number_of_strokes %></span>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-7 col-xl-12 col-xxl-7 d-flex justify-content-center">
+   
+    <% if @kanji %>
+      <img src="<%= asset_path("kanji/#{@kanji&.svg}") %>">
+      <%#= show_svg("#{@kanji&.svg}") %>
+    <% end %>
+  </div>
+</div>

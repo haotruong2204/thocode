@@ -8,7 +8,7 @@ class HandleJsonKanjiService
       json_data = JSON.parse(file_content)
 
       json_data.each do |key, value|
-        Kanji.create(chinese_character: key, svg: value.last)
+        Kanji.create(chinese_character: key, svg: value.last, level_kanji_id: 1)
       end
     rescue StandardError => e
       puts "Lỗi khi đọc tệp JSON: #{e.message}"
