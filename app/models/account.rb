@@ -23,7 +23,7 @@
 #  provider            :string(255)
 #  refresh_token       :string(255)
 #  remember_created_at :datetime
-#  role                :integer          default("free"), not null
+#  role                :string(255)      default(NULL), not null
 #  sign_in_count       :integer          default(0), not null
 #  slug                :string(255)
 #  status              :integer          default(1), not null
@@ -51,7 +51,7 @@ class Account < ApplicationRecord
   has_many :records
   has_many :histories
 
-  enum role: { free: 0, basic: 1, advanced: 2 }
+  enum role: { free: "free", basic: "basic", advanced: "advanced" }
 
   before_save :set_user_name, :check_student
 
@@ -61,18 +61,19 @@ class Account < ApplicationRecord
       user.password = Devise.friendly_token[0, 20]
       user.full_name = auth.info.name
       user.photo_url = auth.info.image
+      user.role = "free"
     end
   end
 
   class << self
     def ransackable_attributes _auth_object = nil
-      %w[full_name email]
+      %w[full_name email role]
     end
-  
+
     def ransackable_associations _auth_object = nil
       %w[records histories]
     end
-  end 
+  end
 
   private
 

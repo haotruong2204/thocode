@@ -10,7 +10,7 @@
 #  full_name           :string(255)      not null
 #  photo_url           :text(65535)
 #  remember_created_at :datetime
-#  role                :integer          default("administrator"), not null
+#  role                :string(255)      default(NULL), not null
 #  created_at          :datetime         not null
 #  updated_at          :datetime         not null
 #
@@ -23,5 +23,5 @@ class Admin < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :rememberable, :validatable
 
-  enum role: { administrator: 1, collaborator: 1 }
+  enum role: { administrator: "administrator", collaborator: "collaborator" }
 end

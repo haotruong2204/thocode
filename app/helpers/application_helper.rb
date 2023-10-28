@@ -2,7 +2,7 @@
 
 module ApplicationHelper
   include Pagy::Frontend
-  
+
   FLASH_TYPE = {
     success: "success", error: "error", failed: "failed",
     alert: "error", notice: "success", danger: "danger"

@@ -9,7 +9,7 @@
 #  name        :string(255)
 #  slug        :string(255)
 #  title       :string(255)
-#  type_record :integer
+#  type_record :string(255)
 #  created_at  :datetime         not null
 #  updated_at  :datetime         not null
 #  account_id  :integer
@@ -24,12 +24,12 @@ class Record < ApplicationRecord
 
   strip_attributes
 
-  has_one :history
   belongs_to :account
 
   ATTRS = [:kanji_list, :title, :type_record].freeze
 
-  enum type_record: { option: 1, hiragana: 2, katakana: 3, sub_kanji: 4, kanji_n5: 5, kanji_n4: 6, kanji_n3: 7 }
+  enum type_record: { option: "option", hiragana: "hiragana", katakana: "katakana", sub_kanji: "sub_kanji",
+    kanji_n5: "kanji_n5", kanji_n4: "kanji_n4", kanji_n3: "kanji_n3" }
 
   validates :kanji_list, presence: true
 end

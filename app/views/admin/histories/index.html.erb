@@ -19,8 +19,9 @@
         <div class="card-title">
           <div class="d-flex align-items-center position-relative my-1">
             <i class="ki-outline ki-magnifier fs-3 position-absolute ms-5"></i>
-            <%= search_form_for @q, url: admin_histories_path, html: { class: "s" } do |f| %>
-              <%= f.search_field :type_history_cont, class: "form-control form-control-solid w-250px ps-13", placeholder: "Filter category" %>
+            <%= search_form_for @q, url: admin_histories_path do |f| %>
+              <%= f.search_field :account_full_name_or_account_role_or_account_email_or_type_history_cont, 
+                class: "form-control form-control-solid w-250px ps-13", placeholder: "Tìm kiếm" %>
             <% end %>
           </div>
         </div>

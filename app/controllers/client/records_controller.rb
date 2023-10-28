@@ -16,7 +16,7 @@ class Client::RecordsController < Client::BaseController
     if @record.save
       flash[:success] = "Tạo bản ghi thành công."
       current_account.histories.create(
-        type_history: :download,
+        type_history: "download",
         title: "Tạo bản nháp thành công.",
         description: "Chúc bạn học thật tốt với file luyện viết này",
         record_id: @record.id

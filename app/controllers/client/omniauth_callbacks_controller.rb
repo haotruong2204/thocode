@@ -16,7 +16,7 @@ class Client::OmniauthCallbacksController < Devise::OmniauthCallbacksController
       @account.email = @account.uid if @account.email.blank?
       @account.save(validate: false)
       @account.histories.create(
-        type_history: :create_account,
+        type_history: "create_account",
         title: "Chào mừng bạn đến với hệ thống!",
         description: "Chúc bạn có những trải nghiệm thú vị trong hành trình học tiếng Nhật."
       )
