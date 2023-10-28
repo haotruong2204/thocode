@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # == Schema Information
 #
 # Table name: admins
@@ -8,7 +10,7 @@
 #  full_name           :string(255)      not null
 #  photo_url           :text(65535)
 #  remember_created_at :datetime
-#  role                :integer          default(1), not null
+#  role                :integer          default("administrator"), not null
 #  created_at          :datetime         not null
 #  updated_at          :datetime         not null
 #

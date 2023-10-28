@@ -98,3 +98,9 @@ gem "nokogiri"
 
 # Slug
 gem "friendly_id", "~> 5.4.0"
+
+# Paginate
+gem "pagy"
+
+# Search
+gem "ransack"

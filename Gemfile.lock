@@ -202,6 +202,7 @@ GEM
       actionpack (>= 4.2)
       omniauth (~> 2.0)
     orm_adapter (0.5.0)
+    pagy (6.1.0)
     parallel (1.23.0)
     parser (3.2.2.4)
       ast (~> 2.4.1)
@@ -253,6 +254,10 @@ GEM
       zeitwerk (~> 2.5)
     rainbow (3.1.1)
     rake (13.0.6)
+    ransack (4.1.0)
+      activerecord (>= 6.1.5)
+      activesupport (>= 6.1.5)
+      i18n
     redis (4.8.1)
     regexp_parser (2.8.2)
     responders (3.1.1)
@@ -368,10 +373,12 @@ DEPENDENCIES
   omniauth
   omniauth-google-oauth2
   omniauth-rails_csrf_protection
+  pagy
   pry-byebug
   pry-rails
   puma (~> 5.0)
   rails (~> 7.0.8)
+  ransack
   redis (~> 4.0)
   rubocop
   rubocop-performance

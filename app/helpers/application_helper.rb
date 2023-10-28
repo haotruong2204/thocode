@@ -1,6 +1,8 @@
 # frozen_string_literal: true
 
 module ApplicationHelper
+  include Pagy::Frontend
+  
   FLASH_TYPE = {
     success: "success", error: "error", failed: "failed",
     alert: "error", notice: "success", danger: "danger"
@@ -20,5 +22,9 @@ module ApplicationHelper
 
   def get_path_record id
     record_path Record.find id
+  end
+
+  def get_role_user condition
+    condition ? "sinh viên" : "người dùng bình thường"
   end
 end

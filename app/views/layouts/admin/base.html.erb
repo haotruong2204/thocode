@@ -64,16 +64,15 @@
           <div class="app-wrapper flex-column flex-row-fluid" id="kt_app_wrapper">
             <%= render "layouts/admin/sidebar" %>
             <div class="app-main flex-column flex-row-fluid" id="kt_app_main">
-              <%= yield %>
+              <div class="d-flex flex-column flex-column-fluid">
+                <%= yield %>
+              </div>
               <%= render "layouts/admin/footer" %>
             </div>
           </div>
         </div>
       </div>
       
-      <%# <%= render "layouts/client/modals/upgrade_plan" %>
-      <%# <%= render "layouts/client/modals/chat" %>
-
       <div id="kt_scrolltop" class="scrolltop" data-kt-scrolltop="true">
         <i class="ki-outline ki-arrow-up"></i>
       </div>

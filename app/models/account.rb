@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # == Schema Information
 #
 # Table name: accounts
@@ -12,6 +14,7 @@
 #  expires_at          :datetime
 #  failed_attempts     :integer          default(0), not null
 #  full_name           :string(255)      not null
+#  is_student          :boolean          default(FALSE)
 #  last_sign_in_at     :datetime
 #  last_sign_in_ip     :string(255)
 #  locked_at           :datetime
@@ -41,16 +44,16 @@
 class Account < ApplicationRecord
   extend FriendlyId
   friendly_id :user_name, use: :slugged
-  
+
   devise :database_authenticatable, :async, :rememberable, :trackable, :lockable,
     :omniauthable, :validatable, omniauth_providers: [:google_oauth2, :facebook]
-  
+
   has_many :records
   has_many :histories
 
-  enum role: { free: 0, bacsic: 1, advanced: 2 }
-  
-  before_save :set_user_name
+  enum role: { free: 0, basic: 1, advanced: 2 }
+
+  before_save :set_user_name, :check_student
 
   def self.from_omniauth auth
     where(provider: auth.provider, uid: auth.uid).first_or_initialize do |user|
@@ -61,9 +64,23 @@ class Account < ApplicationRecord
     end
   end
 
+  class << self
+    def ransackable_attributes _auth_object = nil
+      %w[full_name email]
+    end
+  
+    def ransackable_associations _auth_object = nil
+      %w[records histories]
+    end
+  end 
+
   private
 
   def set_user_name
     self.user_name = email.split("@").first
+  end
+
+  def check_student
+    self.is_student = email.split("@").last.include?("edu")
   end
 end

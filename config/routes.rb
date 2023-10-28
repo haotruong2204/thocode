@@ -16,5 +16,8 @@ Rails.application.routes.draw do
     root "dashboard#index"
    
     devise_for :admins, path: "", path_names: { sign_in: "login", sign_out: "logout" }
+
+    resources :accounts, only: [:show]
+    resources :histories, only: [:index, :show]
   end
 end

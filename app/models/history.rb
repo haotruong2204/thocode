@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # == Schema Information
 #
 # Table name: histories
@@ -16,4 +18,14 @@ class History < ApplicationRecord
   belongs_to :account
   belongs_to :record
   enum type_history: { download: 1, create_account: 2, upgrade_plan: 3, expire_plan: 4 }
+
+  class << self
+    def ransackable_attributes _auth_object = nil
+      ["type_history"]
+    end
+  
+    def ransackable_associations _auth_object = nil
+      ["account"]
+    end
+  end 
 end

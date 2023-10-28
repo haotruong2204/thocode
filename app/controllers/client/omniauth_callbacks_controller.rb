@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class Client::OmniauthCallbacksController < Devise::OmniauthCallbacksController
   def google_oauth2
     generic_callback(:google_oauth2)
@@ -16,7 +18,7 @@ class Client::OmniauthCallbacksController < Devise::OmniauthCallbacksController
       @account.histories.create(
         type_history: :create_account,
         title: "Chào mừng bạn đến với hệ thống!",
-        description: "Chúc bạn có những trải nghiệm thú vị trong hành trình học tiếng Nhật.",
+        description: "Chúc bạn có những trải nghiệm thú vị trong hành trình học tiếng Nhật."
       )
     end
     @account.update last_sign_in_at: Time.zone.now

@@ -1,0 +1,25 @@
+<tr>
+  <td>
+    <a href="<%= admin_account_path(history.account) %>" class="text-gray-800 text-hover-primary mb-1" >
+      <%= history.account.full_name %>
+    </a>
+  </td>
+  <td>
+    <a href="javascript:void(0)" class="text-gray-600 text-hover-primary mb-1"><%= history.account.email %></a>
+  </td>
+  <td>
+    <div class="badge badge-light-danger"><%= history.account.role %></div>
+  </td>
+  <td><%= history.type_history %></td>
+  <td><%= history.created_at.strftime("%H:%M, %d-%m-%Y") %></td>
+  <td class="text-end">
+    <a href="<%= admin_history_path(history) %>" class="btn btn-sm btn-light btn-flex btn-center btn-active-light-primary"> 
+      <i class="ki-outline ki-eye fs-5">
+        <span class="path1"></span>
+        <span class="path2"></span>
+        <span class="path3"></span>
+      </i>
+      chi tiết
+    </a>
+  </td>
+</tr>

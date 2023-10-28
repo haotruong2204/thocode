@@ -1,0 +1,52 @@
+<%= content_for :breadcum_first, "Trang chủ" %>
+<%= content_for :breadcum_first_link, admin_root_path %>
+<%= content_for :breadcum_second, "Hoạt động của người dùng" %>
+
+<div id="kt_app_toolbar" class="app-toolbar py-3 py-lg-0">
+  <div id="kt_app_toolbar_container" class="app-container container-xxl d-flex flex-stack">
+    <div class="page-title d-flex flex-column justify-content-center me-3">
+      <h1 class="page-heading d-flex text-dark fw-bold fs-3 flex-column justify-content-center my-0">
+        Hoạt động của toàn bộ người dùng
+      </h1>
+      <%= render "layouts/breadcrumb" %>
+    </div>
+  </div>
+</div>
+<div id="kt_app_content" class="app-content flex-column-fluid">
+  <div id="kt_app_content_container" class="app-container container-xxl">
+    <div class="card">
+      <div class="card-header border-0 pt-6">
+        <div class="card-title">
+          <div class="d-flex align-items-center position-relative my-1">
+            <i class="ki-outline ki-magnifier fs-3 position-absolute ms-5"></i>
+            <%= search_form_for @q, url: admin_histories_path, html: { class: "s" } do |f| %>
+              <%= f.search_field :type_history_cont, class: "form-control form-control-solid w-250px ps-13", placeholder: "Filter category" %>
+            <% end %>
+          </div>
+        </div>
+      </div>
+      <div class="card-body pt-0">
+        <table class="table align-middle table-row-dashed fs-6 gy-5" id="kt_customers_table">
+          <thead>
+            <tr
+              class="text-start text-gray-400 fw-bold fs-7 text-uppercase gs-0"
+            >
+              <th class="min-w-125px">Người dùng</th>
+              <th class="min-w-125px">Email</th>
+              <th class="min-w-125px">Loại tài khoản</th>
+              <th class="min-w-125px">Hành động</th>
+              <th class="min-w-125px">Thời gian</th>
+              <th class="text-end min-w-70px"></th>
+            </tr>
+          </thead>
+          <tbody class="fw-semibold text-gray-600">
+            <%= render @histories %>
+          </tbody>
+        </table>
+        <div class="col-sm-12 col-md-12 d-flex align-items-center justify-content-md-end">
+          <%= render partial: 'shared/pagination', locals: {pagy: @pagy} %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

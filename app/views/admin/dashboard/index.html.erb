@@ -1,1 +1,216 @@
-index admin
+<div id="kt_app_content" class="app-content flex-column-fluid">
+  <div id="kt_app_content_container" class="app-container container-xxl">
+    <div class="col-xl-12 mb-5 mb-xl-12">
+      <div class="card card-flush h-md-100">
+        <div class="card-header pt-7">
+          <h3 class="card-title align-items-start flex-column">
+            <span class="card-label fw-bold text-gray-800">Người dùng trong hệ thống</span
+            >
+            <span class="text-gray-400 mt-1 fw-semibold fs-6"
+              >Tổng có <%= Account.count %> người</span
+            >
+          </h3>
+        </div>
+        <div class="card-body">
+          <ul class="nav nav-pills nav-pills-custom mb-3">
+            <li class="nav-item mb-3 me-3 me-lg-6">
+              <a
+                class="nav-link btn btn-outline btn-flex btn-color-muted btn-active-color-primary flex-column overflow-hidden w-80px h-85px pt-5 pb-2 active"
+                data-bs-toggle="pill"
+                href="#kt_stats_widget_6_tab_1"
+              >
+                <div class="nav-icon mb-3">
+                  <i class="ki-outline ki-truck fs-1"></i>
+                </div>
+                <span
+                  class="nav-text text-gray-800 fw-bold fs-6 lh-1"
+                  >Free</span
+                >
+                <span
+                  class="bullet-custom position-absolute bottom-0 w-100 h-4px bg-primary"
+                ></span>
+              </a>
+            </li>
+            <li class="nav-item mb-3 me-3 me-lg-6">
+              <a
+                class="nav-link btn btn-outline btn-flex btn-color-muted btn-active-color-primary flex-column overflow-hidden w-80px h-85px pt-5 pb-2"
+                data-bs-toggle="pill"
+                href="#kt_stats_widget_6_tab_2"
+              >
+                <div class="nav-icon mb-3">
+                  <i class="ki-outline ki-bus fs-1"></i>
+                </div>
+                <span
+                  class="nav-text text-gray-800 fw-bold fs-6 lh-1"
+                  >Basic</span
+                >
+                <span
+                  class="bullet-custom position-absolute bottom-0 w-100 h-4px bg-primary"
+                ></span>
+              </a>
+            </li>
+            <li class="nav-item mb-3 me-3 me-lg-6">
+              <a
+                class="nav-link btn btn-outline btn-flex btn-color-muted btn-active-color-primary flex-column overflow-hidden w-80px h-85px pt-5 pb-2"
+                data-bs-toggle="pill"
+                href="#kt_stats_widget_6_tab_3"
+              >
+                <div class="nav-icon mb-3">
+                  <i class="ki-outline ki-logistic fs-1"></i>
+                </div>
+                <span
+                  class="nav-text text-gray-800 fw-bold fs-6 lh-1"
+                  >Advanced</span
+                >
+                <span
+                  class="bullet-custom position-absolute bottom-0 w-100 h-4px bg-primary"
+                ></span>
+              </a>
+            </li>
+          </ul>
+          <div class="tab-content">
+            <div class="tab-pane fade active show" id="kt_stats_widget_6_tab_1">
+              <div class="table-responsive">
+                <table class="table table-row-dashed align-middle gs-0 gy-4 my-0">
+                  <thead>
+                    <tr class="fs-7 fw-bold text-gray-500 border-bottom-0">
+                      <th class="p-0 w-200px w-xxl-450px"></th>
+                      <th class="p-0 min-w-150px"></th>
+                      <th class="p-0 min-w-150px"></th>
+                      <th class="p-0 min-w-190px"></th>
+                      <th class="p-0 w-50px"></th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <% @account_free.each do |account| %>
+                      <tr>
+                        <td>
+                          <div class="d-flex align-items-center">
+                            <div class="symbol symbol-40px me-3">
+                              <img
+                                src="assets/media/avatars/blank.png"
+                                class=""
+                                alt=""
+                              />
+                            </div>
+                            <div class="d-flex justify-content-start flex-column">
+                              <a href="<%= admin_account_path(account) %>" class="text-dark fw-bold text-hover-primary mb-1 fs-6" ><%= account.full_name %></a>
+                              <span class="text-muted fw-semibold d-block fs-7"><%= get_role_user(account.is_student) %></span>
+                            </div>
+                          </div>
+                        </td>
+                        <td>
+                          <span class="text-gray-800 fw-bold d-block mb-1 fs-6"><%= account.records.count %></span>
+                          <span class="fw-semibold text-gray-400 d-block" >Lượt tải</span>
+                        </td>
+                        <td class="text-end">
+                          <a href="<%= admin_account_path(account) %>" class="btn btn-sm btn-icon btn-bg-light btn-active-color-primary w-30px h-30px">
+                            <i class="ki-outline ki-black-right fs-2 text-gray-500"></i>
+                          </a>
+                        </td>
+                      </tr>
+                    <% end %>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+            <div class="tab-pane fade" id="kt_stats_widget_6_tab_2">
+              <div class="table-responsive">
+                <table class="table table-row-dashed align-middle gs-0 gy-4 my-0">
+                  <thead>
+                    <tr class="fs-7 fw-bold text-gray-500 border-bottom-0">
+                      <th class="p-0 w-200px w-xxl-450px"></th>
+                      <th class="p-0 min-w-150px"></th>
+                      <th class="p-0 min-w-150px"></th>
+                      <th class="p-0 min-w-190px"></th>
+                      <th class="p-0 w-50px"></th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <% @account_basic.each do |account| %>
+                      <tr>
+                        <td>
+                          <div class="d-flex align-items-center">
+                            <div class="symbol symbol-40px me-3">
+                              <img
+                                src="assets/media/avatars/blank.png"
+                                class=""
+                                alt=""
+                              />
+                            </div>
+                            <div class="d-flex justify-content-start flex-column">
+                              <a href="<%= admin_account_path(account) %>" class="text-dark fw-bold text-hover-primary mb-1 fs-6" ><%= account.full_name %></a>
+                              <span class="text-muted fw-semibold d-block fs-7"><%= get_role_user(account.is_student) %></span>
+                            </div>
+                          </div>
+                        </td>
+                        <td>
+                          <span class="text-gray-800 fw-bold d-block mb-1 fs-6"><%= account.records.count %></span>
+                          <span class="fw-semibold text-gray-400 d-block" >Lượt tải</span>
+                        </td>
+                        <td class="text-end">
+                          <a href="<%= admin_account_path(account) %>" class="btn btn-sm btn-icon btn-bg-light btn-active-color-primary w-30px h-30px">
+                            <i class="ki-outline ki-black-right fs-2 text-gray-500"></i>
+                          </a>
+                        </td>
+                      </tr>
+                    <% end %>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+            <div class="tab-pane fade" id="kt_stats_widget_6_tab_3">
+              <div class="table-responsive">
+                <table
+                  class="table table-row-dashed align-middle gs-0 gy-4 my-0"
+                >
+                  <thead>
+                    <tr
+                      class="fs-7 fw-bold text-gray-500 border-bottom-0"
+                    >
+                      <th class="p-0 w-200px w-xxl-450px"></th>
+                      <th class="p-0 min-w-150px"></th>
+                      <th class="p-0 min-w-150px"></th>
+                      <th class="p-0 min-w-190px"></th>
+                      <th class="p-0 w-50px"></th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <% @account_advanced.each do |account| %>
+                      <tr>
+                        <td>
+                          <div class="d-flex align-items-center">
+                            <div class="symbol symbol-40px me-3">
+                              <img
+                                src="assets/media/avatars/blank.png"
+                                class=""
+                                alt=""
+                              />
+                            </div>
+                            <div class="d-flex justify-content-start flex-column">
+                              <a href="<%= admin_account_path(account) %>" class="text-dark fw-bold text-hover-primary mb-1 fs-6" ><%= account.full_name %></a>
+                              <span class="text-muted fw-semibold d-block fs-7"><%= get_role_user(account.is_student) %></span>
+                            </div>
+                          </div>
+                        </td>
+                        <td>
+                          <span class="text-gray-800 fw-bold d-block mb-1 fs-6"><%= account.records.count %></span>
+                          <span class="fw-semibold text-gray-400 d-block" >Lượt tải</span>
+                        </td>
+                        <td class="text-end">
+                          <a href="<%= admin_account_path(account) %>" class="btn btn-sm btn-icon btn-bg-light btn-active-color-primary w-30px h-30px">
+                            <i class="ki-outline ki-black-right fs-2 text-gray-500"></i>
+                          </a>
+                        </td>
+                      </tr>
+                    <% end %>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
