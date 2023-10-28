@@ -1,0 +1,12 @@
+vi:
+  activerecord:
+    models:
+      kanji: Hán Tự
+    attributes:
+      kanji:
+        yin_han: Âm Hán
+        meaning: Nghĩa
+        yin_on: Âm On
+        yin_kun: Âm Kun
+        chinese_character: Chữ Hán
+        number_of_strokes: Số Nét

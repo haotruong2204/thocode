@@ -19,5 +19,6 @@ Rails.application.routes.draw do
 
     resources :accounts, only: [:show]
     resources :histories, only: [:index, :show]
+    resources :kanjis
   end
 end

@@ -1,0 +1,33 @@
+vi:
+  activerecord:
+    errors: &errors
+      format: "%{attribute}%{message}"
+      messages:
+        blank: "%{attribute} Không được để trống"
+        wrong_format: "The %{attribute} format is incorrect"
+        taken: "%{attribute} has already been taken"
+        invalid: "%{attribute} is invalid"
+        too_short: "%{attribute} is too short (minimum is %{count} characters)"
+        not_an_integer: "Please enter %{attribute} with integers"
+        not_a_number: "Please enter %{attribute} with numbers"
+        value_greater_than: "%{attribute} must be greater than %{with}."
+        other_than: "must be other than %{count}."
+        less_than_or_equal_to: "%{attribute} must be less than or equal to %{count}."
+        less_than: "%{attribute} must be less than %{count}."
+        too_long: "Please enter %{attribute} with %{count} characters or less."
+        greater_than_or_equal_to: "%{attribute} must be greater than or equal to %{count}."
+        only_apartment: "Cannot create multiple products belonging to the same Stay."
+        duplicate_date: "Apply date is duplicated."
+        greater_than: "%{attribute} must be greater %{count}."
+        token_format: "%{attribute} must be characters, numbers, and underline"
+    activemodel:
+      errors:
+        <<: *errors
+    activerecord:
+      errors:
+        <<: *errors
+    models:
+      categories: "Categories"
+  activemodel:
+    errors:
+      <<: *errors

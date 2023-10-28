@@ -17,7 +17,7 @@
 class History < ApplicationRecord
   belongs_to :account
   enum type_history: { download: "download", create_account: "create_account", upgrade_plan: "upgrade_plan",
-expire_plan: "expire_plan" }
+       expire_plan: "expire_plan" }
 
   class << self
     def ransackable_attributes _auth_object = nil

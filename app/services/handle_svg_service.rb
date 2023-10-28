@@ -22,8 +22,8 @@ class HandleSvgService
         kanji: kj.svg,
         yin_han: kj.yin_han,
         meaning: kj.meaning,
-        on: kj.on,
-        kun: kj.kun
+        yin_on: kj.yin_on,
+        yin_kun: kj.yin_kun,
       }
     end
   end

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_10_28_042231) do
+ActiveRecord::Schema[7.0].define(version: 2023_10_28_100830) do
   create_table "accounts", charset: "utf8mb4", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -81,12 +81,20 @@ ActiveRecord::Schema[7.0].define(version: 2023_10_28_042231) do
   end
 
   create_table "kanjis", charset: "utf8mb4", force: :cascade do |t|
-    t.string "on"
-    t.string "kun"
+    t.string "yin_on"
+    t.string "yin_kun"
     t.text "svg"
     t.string "yin_han"
     t.string "meaning"
     t.string "chinese_character"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "number_of_strokes"
+    t.integer "level_kanji_id"
+  end
+
+  create_table "level_kanjis", charset: "utf8mb4", force: :cascade do |t|
+    t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
