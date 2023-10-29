@@ -81,14 +81,14 @@
             <%= f.input :kanji_list, as: :text,
               input_html: {
                 value: f.object.kanji_list, id: "floatingTextarea1", placeholder: "Nhập Kanji",
-                autocomplete: "off", class: "form-control form-control-solids",
+                class: "form-control form-control-solids",
                 rows: 4 }, label: false %>
           </div>
           <div class="input-group mb-5">
             <span class="input-group-text" id="record-title">
               <i class="ki-duotone ki-crown-2 fs-1"><span class="path1"></span><span class="path2"></span><span class="path3"></span></i>
             </span>
-            <input type="text" name="record[title]" autocomplete="off" class="form-control" placeholder="Dấu ấn cá nhân" value="luyenkanji.com | @thocodehoctiengnhat" aria-label="title" aria-describedby="record-title"/>
+            <input type="text" name="record[title]" class="form-control" placeholder="Dấu ấn cá nhân" value="luyenkanji.com | @thocodehoctiengnhat" aria-label="title" aria-describedby="record-title"/>
           </div>
 
           <button type="submit" class="btn btn-primary">
