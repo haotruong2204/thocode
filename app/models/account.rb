@@ -51,7 +51,9 @@ class Account < ApplicationRecord
   has_many :records
   has_many :histories
 
-  enum role: { free: "free", basic: "basic", advanced: "advanced" }
+  ATTRS = [:role].freeze
+
+  enum role: { free: "free", advanced: "advanced" }
 
   before_save :set_user_name, :check_student
 

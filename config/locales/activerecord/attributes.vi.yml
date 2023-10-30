@@ -2,6 +2,7 @@ vi:
   activerecord:
     models:
       kanji: Hán Tự
+      account: Tài Khoản
     attributes:
       kanji:
         yin_han: Âm Hán
@@ -10,3 +11,7 @@ vi:
         yin_kun: Âm Kun
         chinese_character: Chữ Hán
         number_of_strokes: Số Nét
+      account:
+        roles:
+          free: Tài khoản miễn phí
+          advanced: Tài khoản Pro

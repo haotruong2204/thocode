@@ -19,7 +19,7 @@ Rails.application.routes.draw do
    
     devise_for :admins, path: "", path_names: { sign_in: "login", sign_out: "logout" }
 
-    resources :accounts, only: [:show]
+    resources :accounts
     resources :histories, only: [:index, :show]
     resources :kanjis
   end

@@ -87,6 +87,16 @@
             </a>
           </div>
           <div class="col mb-4">
+            <a href="<%= admin_accounts_path %>"
+              class="btn btn-icon btn-outline btn-bg-light btn-active-light-primary btn-flex flex-column flex-center w-lg-90px h-lg-90px w-70px h-70px <%= active_sidebar(admin_accounts_path, "account", "index") %>"
+              data-kt-button="true">
+              <span class="mb-2">
+                <i class="ki-outline ki-people fs-1"></i>
+              </span>
+              <span class="fs-7 fw-bold">Người dùng</span>
+            </a>
+          </div>
+          <div class="col mb-4">
             <a href="<%= admin_root_path %>" class="btn btn-icon btn-outline btn-bg-light btn-active-light-primary btn-flex flex-column flex-center w-lg-90px h-lg-90px w-70px h-70px <%= active_sidebar(admin_root_path, "dashboard") %>"
               data-kt-button="true">
               <span class="mb-2">

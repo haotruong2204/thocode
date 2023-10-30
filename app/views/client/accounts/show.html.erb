@@ -36,9 +36,7 @@
                   src="<%= @account.photo_url %>"
                   alt="image"
                 />
-                <div
-                  class="position-absolute translate-middle bottom-0 start-100 mb-6 bg-success rounded-circle border border-4 border-body h-20px w-20px"
-                ></div>
+                <div class="position-absolute translate-middle bottom-0 start-100 mb-6 bg-success rounded-circle border border-4 border-body h-20px w-20px"></div>
               </div>
             </div>
             <div class="flex-grow-1">
@@ -47,109 +45,56 @@
               >
                 <div class="d-flex flex-column">
                   <div class="d-flex align-items-center mb-2">
-                    <a
-                      href="#"
-                      class="text-gray-900 text-hover-primary fs-2 fw-bold me-1"
-                      ><%= @account.full_name %></a
-                    >
-                    <a href="#">
-                      <i
-                        class="ki-outline ki-verify fs-1 text-primary"
-                      ></i>
-                    </a>
+                    <a href="javascript:void(0)" class="text-gray-900 text-hover-primary fs-2 fw-bold me-1"><%= @account.full_name %></a>
+                    <% if @account.advanced? %>
+                      <i class="ki-outline ki-verify fs-1 text-primary"></i>
+                    <% end %>
                   </div>
                   <div
                     class="d-flex flex-wrap fw-semibold fs-6 mb-4 pe-2"
                   >
-                    <a
-                      href="#"
-                      class="d-flex align-items-center text-gray-400 text-hover-primary me-5 mb-2"
-                    >
-                      <i
-                        class="ki-outline ki-profile-circle fs-4 me-1"
-                      ></i
-                      >Developer</a
-                    >
-                    <a
-                      href="#"
-                      class="d-flex align-items-center text-gray-400 text-hover-primary me-5 mb-2"
-                    >
-                      <i
-                        class="ki-outline ki-geolocation fs-4 me-1"
-                      ></i
-                      ><%= @account.address %></a
-                    >
-                    <a
-                      href="#"
-                      class="d-flex align-items-center text-gray-400 text-hover-primary mb-2"
-                    >
-                      <i class="ki-outline ki-sms fs-4 me-1"></i><%= @account.email %></a
-                    >
+                    <a href="javascript:void(0)" class="d-flex align-items-center text-gray-400 text-hover-primary me-5 mb-2">
+                      <i class="ki-outline ki-profile-circle fs-4 me-1"></i>
+                      <%= I18n.t("activerecord.attributes.account.roles.#{@account.role}") %>
+                    </a>
+                    <% if @account.address %>
+                      <a href="javascript:void(0)" class="d-flex align-items-center text-gray-400 text-hover-primary me-5 mb-2">
+                        <i class="ki-outline ki-geolocation fs-4 me-1"></i><%= @account.address %>
+                      </a>
+                    <% end %>
+                    <a href="javascript:void(0)" class="d-flex align-items-center text-gray-400 text-hover-primary mb-2" >
+                      <i class="ki-outline ki-sms fs-4 me-1"></i><%= @account.email %>
+                    </a>
                   </div>
                 </div>
               </div>
               <div class="d-flex flex-wrap flex-stack">
                 <div class="d-flex flex-column flex-grow-1 pe-8">
                   <div class="d-flex flex-wrap">
-                    <div
-                      class="border border-gray-300 border-dashed rounded min-w-125px py-3 px-4 me-6 mb-3"
-                    >
+                    <div class="border border-gray-300 border-dashed rounded min-w-125px py-3 px-4 me-6 mb-3">
                       <div class="d-flex align-items-center">
-                        <i
-                          class="ki-outline ki-arrow-up fs-3 text-success me-2"
-                        ></i>
-                        <div
-                          class="fs-2 fw-bold"
+                        <i class="ki-outline ki-arrow-up fs-3 text-success me-2"></i>
+                        <div class="fs-2 fw-bold"
                           data-kt-countup="true"
-                          data-kt-countup-value="4500"
-                          data-kt-countup-prefix="$"
-                        >
-                          0
+                          data-kt-countup-value="<%= @account.records.count %>">
+                          <%= @account.records.count %>
                         </div>
                       </div>
                       <div class="fw-semibold fs-6 text-gray-400">
-                        Earnings
+                        Lượt đã tải
                       </div>
                     </div>
-                    <div
-                      class="border border-gray-300 border-dashed rounded min-w-125px py-3 px-4 me-6 mb-3"
-                    >
+                    <%# <div class="border border-gray-300 border-dashed rounded min-w-125px py-3 px-4 me-6 mb-3">
                       <div class="d-flex align-items-center">
-                        <i
-                          class="ki-outline ki-arrow-down fs-3 text-danger me-2"
-                        ></i>
-                        <div
-                          class="fs-2 fw-bold"
-                          data-kt-countup="true"
-                          data-kt-countup-value="80"
-                        >
+                        <i class="ki-outline ki-arrow-down fs-3 text-danger me-2"></i>
+                        <div class="fs-2 fw-bold" data-kt-countup="true" data-kt-countup-value="80" data-kt-countup-prefix="%">
                           0
                         </div>
                       </div>
                       <div class="fw-semibold fs-6 text-gray-400">
                         Projects
                       </div>
-                    </div>
-                    <div
-                      class="border border-gray-300 border-dashed rounded min-w-125px py-3 px-4 me-6 mb-3"
-                    >
-                      <div class="d-flex align-items-center">
-                        <i
-                          class="ki-outline ki-arrow-up fs-3 text-success me-2"
-                        ></i>
-                        <div
-                          class="fs-2 fw-bold"
-                          data-kt-countup="true"
-                          data-kt-countup-value="60"
-                          data-kt-countup-prefix="%"
-                        >
-                          0
-                        </div>
-                      </div>
-                      <div class="fw-semibold fs-6 text-gray-400">
-                        Success Rate
-                      </div>
-                    </div>
+                    </div> %>
                   </div>
                 </div>
                 <div class="d-flex align-items-center w-200px w-sm-300px flex-column mt-3">
@@ -254,20 +199,22 @@
               <span class="fw-bold fs-6 text-gray-800"><%= @account.birth_of_date&.strftime(Settings.date.formats) %></span>
             </div>
           </div>
-          <div class="notice d-flex bg-light-warning rounded border-warning border border-dashed p-6">
-            <i class="ki-outline ki-information fs-2tx text-warning me-4"></i>
-            <div class="d-flex flex-stack flex-grow-1">
-              <div class="fw-semibold">
-                <h4 class="text-gray-900 fw-bold">
-                  Chúng tôi cần sự chú ý của bạn
-                </h4>
-                <div class="fs-6 text-gray-700">
-                  Tài khoản của bạn sắp hết lượt tải xuống
-                  <a class="fw-bold" href="">Liên hệ quản trị viên</a> để mua thêm.
+          <% if @account.free? %>
+            <div class="notice d-flex bg-light-warning rounded border-warning border border-dashed p-6">
+              <i class="ki-outline ki-information fs-2tx text-warning me-4"></i>
+              <div class="d-flex flex-stack flex-grow-1">
+                <div class="fw-semibold">
+                  <h4 class="text-gray-900 fw-bold">
+                    Chúng tôi cần sự chú ý của bạn
+                  </h4>
+                  <div class="fs-6 text-gray-700">
+                    Tài khoản của bạn đang trải nghiệm gói miễn phí <br>
+                    <a class="fw-bold" data-bs-toggle="modal" data-bs-target="#kt_modal_upgrade_plan" href="<%= root_path %>">Nâng cấp</a> để sử dụng thêm các tiện ích của chúng tôi.
+                  </div>
                 </div>
               </div>
             </div>
-          </div>
+          <% end %>
         </div>
       </div>
     </div>

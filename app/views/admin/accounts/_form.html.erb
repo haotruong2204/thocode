@@ -1,0 +1,68 @@
+<%= simple_form_for [:admin, @account], html: { class: "form d-flex flex-column flex-lg-row", data: { turbo: false } } do |f| %>
+  <div class="d-flex flex-column gap-7 gap-lg-10 w-100 w-lg-300px mb-7 me-lg-10">
+    <div class="card card-flush py-4">
+      <div class="card-header">
+        <div class="card-title">
+          <h2>Ảnh</h2>
+        </div>
+      </div>
+      <div class="card-body text-center pt-0">
+        <style>
+          .image-input-placeholder {
+            background-image: url("<%= @account.photo_url %>");
+          }
+          [data-bs-theme="dark"] .image-input-placeholder {
+            background-image: url("<%= @account.photo_url %>");
+          }
+        </style>
+        <div class="image-input image-input-empty image-input-outline image-input-placeholder mb-3" data-kt-image-input="true" >
+          <div class="image-input-wrapper w-175px h-175px"></div>
+        </div>
+        <div class="text-muted fs-7">
+          Dữ liệu ảnh được tạo tự động từ hệ thống không thể sửa.
+        </div>
+      </div>
+    </div>
+    <div class="card card-flush py-4">
+      <div class="card-header">
+        <div class="card-title">
+          <h2>Nâng cấp tài khoản</h2>
+        </div>
+      </div>
+      <div class="card-body pt-0">
+        <label class="form-label">loại tài khoản</label>
+        <%= f.input :role, collection: Account.roles,
+            input_html: {
+              value: f.object.role, id: "role", 
+              placeholder: "Âm hán", class: "form-select mb-2", data: { control: "select2", placeholder: "Chọn role" } }, label: false %>
+        <div class="text-muted fs-7">
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div  class="d-flex flex-column flex-row-fluid gap-7 gap-lg-10" >
+    <div class="card card-flush py-4">
+      <div class="card-header">
+        <div class="card-title">
+          <h2>Tổng Quan</h2>
+        </div>
+      </div>
+      <div class="card-body pt-0">
+        <div class="mb-10 fv-row">
+          <%# <label for="yin_han" class="form-label">Âm Hán</label> %>
+          <%#= f.input :yin_han, as: :string,
+            input_html: {
+              value: f.object.yin_han, id: "yin_han", 
+              placeholder: "Âm hán", class: "form-control mb-2" }, label: false %>
+        </div>
+      </div>
+    </div>
+    <div class="d-flex justify-content-end">
+      <a href="<%= admin_accounts_path %>" id="kt_ecommerce_add_product_cancel" class="btn btn-light me-5">Cancel</a>
+      <button type="submit" class="btn btn-primary">
+        <span class="indicator-label">Lưu thay đổi</span>
+      </button>
+    </div>
+  </div>
+<% end %>
