@@ -21,7 +21,7 @@
             <div class="d-flex align-items-center position-relative my-1">
               <i class="ki-outline ki-magnifier fs-3 position-absolute ms-5"></i>
               <%= search_form_for @q, url: admin_kanjis_path do |f| %>
-                <%= f.search_field :chinese_character_or_yin_on_or_yin_on_or_meaning_or_yin_han_cont, 
+                <%= f.search_field :chinese_character_or_yin_kun_or_yin_on_or_meaning_or_yin_han_or_level_kanji_name_cont, 
                   class: "form-control form-control-solid w-250px ps-13", placeholder: "Tìm kiếm" %>
               <% end %>
             </div>

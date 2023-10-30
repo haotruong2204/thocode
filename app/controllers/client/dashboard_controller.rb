@@ -17,4 +17,10 @@ class Client::DashboardController < Client::BaseController
 
   def podcast
   end
+
+  def checkout
+  end
+
+  def contact
+  end
 end

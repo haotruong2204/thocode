@@ -31,7 +31,7 @@ class Kanji < ApplicationRecord
     end
 
     def ransackable_associations _auth_object = nil
-      []
+      ["level_kanji"]
     end
   end
 end

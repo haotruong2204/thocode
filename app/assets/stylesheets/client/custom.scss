@@ -30,3 +30,54 @@ li.kj-line span {
 span.error {
   color: var(--bs-danger);
 }
+
+.banking {
+  background-image: image-url("banner.jpg");
+  height: 100%;
+  border-radius: calc(1.5rem - 1px);
+  background-repeat: no-repeat;
+  background-size: cover;
+  margin: 0;
+
+  .qrcode {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    flex-direction: column;
+
+    img {
+      width: 70%;
+      border-radius: calc(1.5rem - 1px);
+    }
+  }
+
+  .info-banking {
+    height: 50%;
+    background: #ffffffb3;
+    border-radius: calc(1.5rem - 1px);
+    width: 90%;
+    padding: 14px;
+
+    p {
+      margin: 0;
+    }
+
+    .logo-bank {
+      padding-right: 8px;
+
+      img {
+        width: 100px;
+      }
+    }
+
+    .name-bank {
+      padding-left: 8px;
+      border-left: 1px solid #37b74f;
+
+      p {
+        font-size: 12px;
+      }
+    }
+  }
+}

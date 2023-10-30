@@ -1,0 +1,94 @@
+<%= content_for :breadcum_first, "Trang chủ" %>
+<%= content_for :breadcum_first_link, root_path %>
+<%= content_for :breadcum_second, "Nâng cấp" %>
+
+<div class="d-flex flex-column flex-column-fluid">
+  <div id="kt_app_toolbar" class="app-toolbar py-3 py-lg-0">
+    <div
+      id="kt_app_toolbar_container"
+      class="app-container container-xxl d-flex flex-stack"
+    >
+      <div
+        class="page-title d-flex flex-column justify-content-center me-3"
+      >
+        <h1
+          class="page-heading d-flex text-dark fw-bold fs-3 flex-column justify-content-center my-0"
+        >
+          Nâng cấp tài khoản
+        </h1>
+        <%= render "layouts/breadcrumb" %>
+      </div>
+    </div>
+  </div>
+  <div id="kt_app_content" class="app-content flex-column-fluid">
+    <div class="app-container container-xxl">
+      <div class="card">
+        <div class="card-body">
+          <div class="row">
+            <div class="col-md-5 col-xl-5">
+              <div class="card-px text-center pt-15 pb-15">
+                <h2 class="fs-2x fw-bold mb-0">
+                  Nâng cấp nhanh chóng
+                </h2>
+                <p class="text-gray-400 fs-4 fw-semibold py-7">
+                  Tài khoản của bạn sẽ được tự động nâng cấp </br>
+                  khi chúng tôi nhận được thông tin thanh toán.
+                </p>
+              </div>
+              <div class="text-center pb-15 px-5">
+                <img
+                  src="assets/media/illustrations/misc/upgrade.svg"
+                  alt=""
+                  class="mw-100 h-200px h-sm-325px"
+                />
+              </div>
+            </div>
+            <div class="col-md-7 col-xl-7">
+              <div class="row banking">
+                <div class="col-md-5">
+                  <div class="qrcode">
+                    <div><h2 class="text-light-secondary mb-5">Quét QR</h2></div>
+                    <img src="<%= asset_path("qr.jpg") %>" alt="">
+                  </div>
+                </div>
+                <div class="col-md-7 d-flex align-items-center justify-content-center flex-column flex-column-fluid">
+                  <div><h2 class="text-light-secondary mb-5">Chuyển khoản</h2></div>
+                  <div class="info-banking">
+                    <div class="mb-5 d-flex">
+                      <div class="logo-bank">
+                        <img src="<%= asset_path("logo-bank.png") %>" alt="">
+                      </div>
+                      <div class="name-bank">
+                        <p>Ngân hàng</p>
+                        <p>TMCP Việt Nam Thịnh Vượng</p>
+                      </div>
+                    </div>
+                    <div class="mb-5 current-bank">
+                      <p>Tên tài khoản</p>
+                      <p><b>TRUONG VAN HAO</b></p>
+                    </div>
+
+                    <div class="mb-5 number-bank">
+                      <p>Số tài khoản</p>
+                      <p><b>154912266</b></p>
+                    </div>
+
+                    <div class="mb-5 money-bank">
+                      <p>Số tiền</p>
+                      <p><b>199,000 vnđ</b></p>
+                    </div>
+
+                    <div class="mb-5 note-bank">
+                      <p>Nội dung</p>
+                      <p><b>[email của bạn] ví dụ: thocodehoctiengnhat@gmail.com</b></p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

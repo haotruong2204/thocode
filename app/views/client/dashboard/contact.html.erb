@@ -1,0 +1,117 @@
+<%= content_for :breadcum_first, "Trang chủ" %>
+<%= content_for :breadcum_first_link, root_path %>
+<%= content_for :breadcum_second, "Liên Hệ" %>
+
+<div class="d-flex flex-column flex-column-fluid">
+  <div id="kt_app_toolbar" class="app-toolbar py-3 py-lg-0">
+    <div id="kt_app_toolbar_container" class="app-container container-xxl d-flex flex-stack">
+      <div class="page-title d-flex flex-column justify-content-center me-3">
+        <h1 class="page-heading d-flex text-dark fw-bold fs-3 flex-column justify-content-center my-0">
+          Liên Hệ
+        </h1>
+       <%= render "layouts/breadcrumb" %>
+      </div>
+    </div>
+  </div>
+  <div id="kt_app_content" class="app-content flex-column-fluid">
+    <div
+      id="kt_app_content_container"
+      class="app-container container-xxl"
+    >
+      <div class="card">
+        <div class="card-body p-lg-17">
+          <div class="row mb-3">
+            <div class="col-md-6 pe-lg-10">
+              <form action=""  class="form mb-15"  method="post">
+                <h1 class="fw-bold text-dark mb-9">
+                  Gửi mail liên hệ - góp ý
+                </h1>
+                <div class="row mb-5">
+                  <div class="col-md-6 fv-row">
+                    <label class="fs-5 fw-semibold mb-2">Họ Tên</label>
+                    <input
+                      type="text"
+                      class="form-control form-control-solid"
+                      placeholder=""
+                      name="name"
+                    />
+                  </div>
+                  <div class="col-md-6 fv-row">
+                    <label class="fs-5 fw-semibold mb-2">Email</label>
+                    <input
+                      type="text"
+                      class="form-control form-control-solid"
+                      placeholder=""
+                      name="email"
+                    />
+                  </div>
+                </div>
+                <div class="d-flex flex-column mb-5 fv-row">
+                  <label class="fs-5 fw-semibold mb-2"
+                    >Tiêu đề</label
+                  >
+                  <input
+                    class="form-control form-control-solid"
+                    placeholder=""
+                    name="subject"
+                  />
+                </div>
+                <div class="d-flex flex-column mb-10 fv-row">
+                  <label class="fs-6 fw-semibold mb-2"
+                    >Nội dung</label
+                  >
+                  <textarea
+                    class="form-control form-control-solid"
+                    rows="6"
+                    name="message"
+                    placeholder=""
+                  ></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary">
+                  <span class="indicator-label">Góp ý</span>
+                </button>
+              </form>
+            </div>
+            <div class="col-md-6 ps-lg-10">
+              <div class="w-100 rounded mb-2 mb-lg-0 mt-2">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3725.145448501438!2d105.83408047603315!3d20.986805989216787!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3135ac676b9762cf%3A0xcebbf55439be4b6e!2zOTQgUC5OZ3V54buFbiBWxINuIFRy4buXaSwgUGjGsMahbmcgTGnhu4d0LCBUaGFuaCBYdcOibiwgSMOgIE7hu5lpLCBWaeG7h3QgTmFt!5e0!3m2!1svi!2s!4v1698640948212!5m2!1svi!2s" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+              </div>
+            </div>
+          </div>
+          <div class="row g-5 mb-5 mb-lg-15">
+            <div class="col-sm-6 pe-lg-10">
+              <div class="bg-light card-rounded d-flex flex-column flex-center flex-center p-10 h-100">
+                <i class="ki-outline ki-briefcase fs-3tx text-primary"></i>
+                <h1 class="text-dark fw-bold my-5">Liên hệ hotline</h1>
+                <div class="text-gray-700 fw-semibold fs-2">
+                  0362-839-398
+                </div>
+              </div>
+            </div>
+            <div class="col-sm-6 ps-lg-10">
+              <div class="text-center bg-light card-rounded d-flex flex-column flex-center p-10 h-100">
+                <i class="ki-outline ki-geolocation fs-3tx text-primary"></i>
+                <h1 class="text-dark fw-bold my-5">
+                  Văn Phòng
+                </h1>
+                <div class="text-gray-700 fs-3 fw-semibold">
+                  94 Nguyễn Văn Trỗi, Phương Liệt, Thanh Xuân, HN
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="card mb-4 bg-light text-center">
+            <div class="card-body py-12">
+              <a href="https://www.facebook.com/thocodehoctiengnhat" class="mx-4" target="_blank">
+                <img src="assets/media/svg/brand-logos/facebook-4.svg" class="h-30px my-2" alt="logo-fb"/>
+              </a>
+              <a href="https://www.tiktok.com/@thocodehoctiengnhat" class="mx-4" target="_blank">
+                <img src="assets/media/svg/brand-logos/tiktok.svg" class="h-30px my-2" alt="logo-tiktok"/>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
