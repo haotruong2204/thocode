@@ -1,7 +1,7 @@
 <%= content_for :breadcum_first, "Trang chủ" %>
 <%= content_for :breadcum_first_link, root_path %>
 <%= content_for :breadcum_second, "Tài khoản" %>
-<%= content_for :breadcum_third, "Tổng quan" %>
+<%= content_for :breadcum_third, "Lịch sử nâng cấp" %>
 
 <div class="d-flex flex-column flex-column-fluid">
   <div id="kt_app_toolbar" class="app-toolbar py-3 py-lg-0">
@@ -9,13 +9,9 @@
       id="kt_app_toolbar_container"
       class="app-container container-xxl d-flex flex-stack"
     >
-      <div
-        class="page-title d-flex flex-column justify-content-center me-3"
-      >
-        <h1
-          class="page-heading d-flex text-dark fw-bold fs-3 flex-column justify-content-center my-0"
-        >
-          Tổng quan tài khoản
+      <div  class="page-title d-flex flex-column justify-content-center me-3">
+        <h1 class="page-heading d-flex text-dark fw-bold fs-3 flex-column justify-content-center my-0">
+          Lịch sử nâng cấp
         </h1>
        <%= render "layouts/breadcrumb" %>
       </div>
@@ -122,7 +118,7 @@
           >
             <li class="nav-item mt-2">
               <a
-                class="nav-link text-active-primary ms-0 me-10 py-5 active"
+                class="nav-link text-active-primary ms-0 me-10 py-5"
                 href="<%= account_path(@account) %>"
                 >Tổng quan</a
               >
@@ -136,7 +132,7 @@
             </li>
             <li class="nav-item mt-2">
               <a
-                class="nav-link text-active-primary ms-0 me-10 py-5"
+                class="nav-link text-active-primary ms-0 me-10 py-5 active"
                 href="<%= billing_history_account_path(@account) %>"
                 >Lịch sử nâng cấp</a
               >

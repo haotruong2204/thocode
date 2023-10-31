@@ -265,6 +265,49 @@
                     </div>
                   </div>
                 <% end %>
+                <% if history.upgrade_plan? %>
+                  <div class="timeline-item">
+                    <div class="timeline-line w-40px"></div>
+                    <div class="timeline-icon symbol symbol-circle symbol-40px me-4">
+                      <div class="symbol-label bg-light">
+                        <i class="ki-duotone ki-crown-2 text-gray-500 fs-2">
+                          <span class="path1"></span>
+                          <span class="path2"></span>
+                          <span class="path3"></span>
+                        </i>
+                      </div>
+                    </div>
+                    <div class="timeline-content mb-10 mt-n1">
+                      <div class="pe-3 mb-5">
+                        <div class="fs-5 fw-semibold mb-2">
+                          <%= history.title %>
+                        </div>
+                        <div
+                          class="d-flex align-items-center mt-1 fs-6"
+                        >
+                          <div class="text-muted me-2 fs-7">
+                            Nâng cấp lúc <%= history.created_at.strftime("%T %d/%m/%Y") %> bởi
+                            <a href="#" class="text-primary fw-bold me-1">
+                              Quản trị viên
+                            </a>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="overflow-auto pb-5">
+                        <div class="d-flex align-items-center border border-dashed border-gray-300 rounded min-w-750px px-7 py-3 mb-0">
+                          <a href="javascript:void(0)" class="fs-5 text-dark text-hover-primary fw-semibold w-375px min-w-200px">Nâng cấp gói nâng cao</a>
+                          <div class="symbol-group symbol-hover flex-nowrap flex-grow-1 min-w-100px pe-2">
+                            <span class="badge badge-light text-muted">Sử dụng được tất cả các tiện ích trong hệ thống</span>
+                          </div>
+                          <div class="min-w-125px">
+                            <span class="badge badge-light-success">Hoàn thành</span>
+                          </div>
+                          <a href="/" class="btn btn-sm btn-light btn-active-light-primary" >Xem chi tiết</a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                <% end %>
               <% end %>
             </div>
           </div>

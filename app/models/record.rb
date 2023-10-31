@@ -31,5 +31,5 @@ class Record < ApplicationRecord
   enum type_record: { option: "option", hiragana: "hiragana", katakana: "katakana", sub_kanji: "sub_kanji",
     kanji_n5: "kanji_n5", kanji_n4: "kanji_n4", kanji_n3: "kanji_n3" }
 
-  validates :kanji_list, presence: true
+  validates :kanji_list, :type_record, presence: true
 end

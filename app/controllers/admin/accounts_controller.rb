@@ -17,6 +17,13 @@ class Admin::AccountsController < Admin::BaseController
   def update
     if @account.update account_params
       flash[:success] = "Lưu thành công"
+      if @account.advanced?
+        @account.histories.create(
+          type_history: "upgrade_plan",
+          title: "Nâng cấp tài khoản thành công!",
+          description: "Chúc bạn có những trải nghiệm thú vị trong hành trình học tiếng Nhật."
+        )
+      end
       redirect_to admin_accounts_path
     else
       render :edit
