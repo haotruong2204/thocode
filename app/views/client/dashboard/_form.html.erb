@@ -40,8 +40,8 @@
                 </span>
               </label>
             </div>
-            <div class="nav-item nav-item mb-3 me-3 me-lg-6" data-bs-toggle="<%= "tooltip" if current_account.free? %>" data-bs-placement="top" title="tùy chọn này chỉ dành riêng cho tài khoản nâng cao">
-              <input <%= "disabled" if current_account.free? %> type="radio" class="btn-check" name="record[type_record]" value="kanji_n5" id="kt_radio_buttons_2_option_5"/>
+            <div class="nav-item nav-item mb-3 me-3 me-lg-6" data-bs-toggle="<%= "tooltip" if current_account&.free? || !account_signed_in? %>" data-bs-placement="top" title="tùy chọn này chỉ dành riêng cho tài khoản nâng cao">
+              <input <%= "disabled" if current_account&.free? || !account_signed_in? %> type="radio" class="btn-check" name="record[type_record]" value="kanji_n5" id="kt_radio_buttons_2_option_5"/>
               <label class="btn btn-outline btn-outline-dashed btn-active-light-primary p-5 d-flex align-items-center" for="kt_radio_buttons_2_option_5">
                 <i class="ki-duotone ki-notepad fs-1 me-4"><span class="path1"></span><span class="path2"></span><span class="path3"></span><span class="path4"></span><span class="path5"></span></i>
                 <span class="d-block fw-semibold text-start">
@@ -49,8 +49,8 @@
                 </span>
               </label>
             </div>
-            <div class="nav-item nav-item mb-3 me-3 me-lg-6" data-bs-toggle="<%= "tooltip" if current_account.free? %>" data-bs-placement="top" title="tùy chọn này chỉ dành riêng cho tài khoản nâng cao">
-              <input <%= "disabled" if current_account.free? %> type="radio" class="btn-check" name="record[type_record]" value="kanji_n4" id="kt_radio_buttons_2_option_6"/>
+            <div class="nav-item nav-item mb-3 me-3 me-lg-6" data-bs-toggle="<%= "tooltip" if current_account&.free? || !account_signed_in? %>" data-bs-placement="top" title="tùy chọn này chỉ dành riêng cho tài khoản nâng cao">
+              <input <%= "disabled" if current_account&.free? || !account_signed_in? %> type="radio" class="btn-check" name="record[type_record]" value="kanji_n4" id="kt_radio_buttons_2_option_6"/>
               <label class="btn btn-outline btn-outline-dashed btn-active-light-primary p-5 d-flex align-items-center" for="kt_radio_buttons_2_option_6">
                 <i class="ki-duotone ki-notepad fs-1 me-4"><span class="path1"></span><span class="path2"></span><span class="path3"></span><span class="path4"></span><span class="path5"></span></i>
                 <span class="d-block fw-semibold text-start">
@@ -58,8 +58,8 @@
                 </span>
               </label>
             </div>
-            <div class="nav-item nav-item mb-3 me-3 me-lg-6" data-bs-toggle="<%= "tooltip" if current_account.free? %>" data-bs-placement="top" title="tùy chọn này chỉ dành riêng cho tài khoản nâng cao">
-              <input <%= "disabled" if current_account.free? %> type="radio" class="btn-check" name="record[type_record]" value="kanji_n3" id="kt_radio_buttons_2_option_7"/>
+            <div class="nav-item nav-item mb-3 me-3 me-lg-6" data-bs-toggle="<%= "tooltip" if current_account&.free? || !account_signed_in? %>" data-bs-placement="top" title="tùy chọn này chỉ dành riêng cho tài khoản nâng cao">
+              <input <%= "disabled" if current_account&.free? || !account_signed_in? %> type="radio" class="btn-check" name="record[type_record]" value="kanji_n3" id="kt_radio_buttons_2_option_7"/>
               <label class="btn btn-outline btn-outline-dashed btn-active-light-primary p-5 d-flex align-items-center" for="kt_radio_buttons_2_option_7">
                 <i class="ki-duotone ki-notepad fs-1 me-4"><span class="path1"></span><span class="path2"></span><span class="path3"></span><span class="path4"></span><span class="path5"></span></i>
                 <span class="d-block fw-semibold text-start">
@@ -67,9 +67,9 @@
                 </span>
               </label>
             </div>
-           
-            <div class="nav-item nav-item mb-3 me-3 me-lg-6" data-bs-toggle="<%= "tooltip" if current_account.free? %>" data-bs-placement="top" title="tùy chọn này chỉ dành riêng cho tài khoản nâng cao">
-              <input <%= "disabled" if current_account.free? %> type="radio" class="btn-check" name="record[type_record]" value="option" id="kt_radio_buttons_2_option_1"/>
+          
+            <div class="nav-item nav-item mb-3 me-3 me-lg-6" data-bs-toggle="<%= "tooltip" if current_account&.free? || !account_signed_in? %>" data-bs-placement="top" title="tùy chọn này chỉ dành riêng cho tài khoản nâng cao">
+              <input <%= "disabled" if current_account&.free? || !account_signed_in? %> type="radio" class="btn-check" name="record[type_record]" value="option" id="kt_radio_buttons_2_option_1"/>
               <label class="btn btn-outline btn-outline-dashed btn-active-light-primary p-5 d-flex align-items-center mb-5" for="kt_radio_buttons_2_option_1">
                 <i class="ki-duotone ki-brush fs-1 me-4"><span class="path1"></span><span class="path2"></span></i>
                 <span class="d-block fw-semibold text-start">
@@ -92,7 +92,7 @@
             <input type="text" name="record[title]" class="form-control" placeholder="Dấu ấn cá nhân" value="luyenkanji.com | @thocodehoctiengnhat" aria-label="title" aria-describedby="record-title"/>
           </div>
 
-          <button type="submit" class="btn btn-primary">
+          <button type="<% if account_signed_in? %>submit<% else %>button<% end %>" class="btn btn-primary" data-bs-toggle="<%= "tooltip" unless account_signed_in? %>" data-bs-placement="top" title="Bạn cần đăng nhập để sử dụng tính năng này">
             <i class="ki-duotone ki-click fs-1"><span class="path1"></span><span class="path2"></span><span class="path3"></span><span class="path4"></span><span class="path5"></span></i>
             Tạo bản nháp
           </button>

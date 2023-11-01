@@ -4,7 +4,9 @@
       <%= render "upgrade" %>
       <%= render "form" %>
       <%= render "adsen" %>
-      <%= render "history" %>
+      <% if account_signed_in? %>
+        <%= render "history" %>
+      <% end %>
     </div>
   </div>
 </div>

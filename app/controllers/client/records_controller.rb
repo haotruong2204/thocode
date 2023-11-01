@@ -31,6 +31,11 @@ class Client::RecordsController < Client::BaseController
   end
 
   def create
+    unless account_signed_in?
+      flash[:error] = "Bạn cần đăng nhập để sử dụng tính năng này"
+      redirect_to root_path
+    end
+
     if current_account.advanced?
       @record = Record.new record_params
       @record.account_id = current_account.id
