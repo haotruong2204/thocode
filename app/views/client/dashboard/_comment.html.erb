@@ -13,39 +13,43 @@
 </div>
 
 <div class="separator my-6"></div>
-<div data-kt-inbox-message="message_wrapper">
-  <div class="d-flex flex-wrap gap-2 flex-stack cursor-pointer" data-kt-inbox-message="header">
+<% if @kanji&.story_kanji %>
+  <div class="d-flex flex-wrap gap-2 flex-stack cursor-pointer">
     <div class="d-flex align-items-center">
       <div class="symbol symbol-50 me-4">
-        <span class="symbol-label" style="background-image: url(<%= asset_path("media/avatars/blank.png") %>);"></span>
+        <span class="symbol-label" style="background-image: url(<%= asset_path("avt2.png") %>);"></span>
       </div>
       <div class="pe-5">
         <div class="d-flex align-items-center flex-wrap gap-1">
           <a href="#" class="fw-bold text-dark text-hover-primary">Quản trị viên</a>
           <i class="ki-outline ki-abstract-8 fs-7 text-success mx-3"></i>
-          <span class="text-muted fw-bold">2 days ago</span>
+          <span class="fw-semibold text-muted text-end me-8"><%= @kanji.story_kanji.created_at.strftime("%T %d/%m/%Y") %></span>
         </div>
-        <div class="text-muted fw-semibold mw-400px" data-kt-inbox-message="preview">
-          Jornalists call this critical, introductory
-          section the "Lede," and when bridge properly
-          executed....
+        <div class="text-muted fw-semibold" data-kt-inbox-message="preview">
+          <%= @kanji.story_kanji.content %>
         </div>
-      </div>
-    </div>
-    <div class="d-flex align-items-center flex-wrap gap-2">
-      <span class="fw-semibold text-muted text-end me-8">24 Jun 2023, 11:30 am</span>
-      <div class="d-flex">
-        <a href="#" class="btn btn-sm btn-icon btn-clear btn-active-light-primary me-4" data-bs-toggle="tooltip" data-bs-placement="top"
-          title="Đồng tình">
-          <span class="me-1 fs-7 text-warning pt-1">10</span>
-          <i class="ki-outline ki-like fs-2 text-warning m-0"></i> 
-        </a>
-        <a href="#" class="btn btn-sm btn-icon btn-clear btn-active-light-primary me-4" data-bs-toggle="tooltip" data-bs-placement="top"
-          title="Không đồng tình">
-          <i class="ki-outline ki-dislike fs-2 text-warning m-0"></i>
-          <span class="me-1 fs-7 text-warning">10</span>
-        </a>
       </div>
     </div>
   </div>
-</div>
+<% elsif @kanji %>
+  <div class="d-flex flex-wrap gap-2 flex-stack cursor-pointer">
+    <div class="d-flex align-items-center">
+      <div class="symbol symbol-50 me-4">
+        <span class="symbol-label" style="background-image: url(<%= asset_path("avt2.png") %>);"></span>
+      </div>
+      <div class="pe-5">
+        <div class="d-flex align-items-center flex-wrap gap-1">
+          <a href="#" class="fw-bold text-dark text-hover-primary">Quản trị viên</a>
+          <i class="ki-outline ki-abstract-8 fs-7 text-success mx-3"></i>
+        </div>
+        <div class="text-muted fw-semibold" data-kt-inbox-message="preview">
+          Nếu có ý tưởng về cách học cho chữ hán này xin hãy <a href="<%= contact_path(kanji: @kanji&.chinese_character) %>">đóng góp</a> cho chúng tôi, cảm ơn bạn nhiều 
+          <i class="ki-duotone ki-heart-circle text-danger">
+            <span class="path1"></span>
+            <span class="path2"></span>
+          </i>
+        </div>
+      </div>
+    </div>
+  </div>
+<% end %>

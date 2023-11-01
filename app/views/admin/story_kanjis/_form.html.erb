@@ -1,0 +1,52 @@
+<%= simple_form_for [:admin, @story_kanji], html: { class: "form d-flex flex-column flex-lg-row", data: { turbo: false } } do |f| %>
+  <div class="d-flex flex-column gap-7 gap-lg-10 w-100 w-lg-300px mb-7 me-lg-10">
+    <div class="card card-flush py-4">
+      <div class="card-header">
+        <div class="card-title">
+          <h2>Kanji</h2>
+        </div>
+      </div>
+      <div class="card-body pt-0">
+        <label class="form-label">Chọn Kanji</label>
+          <%= f.collection_select :kanji_id, Kanji.all, :id, :chinese_character, {}, class: "form-select mb-2",
+            data: {control: "select2", placeholder: "Chọn chữ hán"} %>
+        <div class="text-muted fs-7">
+          Thêm câu chuyện cho chữ hán
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div  class="d-flex flex-column flex-row-fluid gap-7 gap-lg-10" >
+    <div class="card card-flush py-4">
+      <div class="card-header">
+        <div class="card-title">
+          <h2>Tổng Quan</h2>
+        </div>
+      </div>
+      <div class="card-body pt-0">
+        <div class="mb-10 fv-row">
+          <label for="title" class="form-label">Tiêu đề</label>
+          <%= f.input :title, as: :string,
+            input_html: {
+              value: f.object.title, id: "title", 
+              placeholder: "Âm hán", class: "form-control mb-2" }, label: false %>
+        </div>
+
+        <div class="mb-10 fv-row">
+          <label for="content" class="form-label">Nội dung câu chuyện</label>
+          <%= f.input :content, as: :text,
+            input_html: {
+              value: f.object.content, id: "content", 
+              placeholder: "Nghĩa", class: "form-control mb-2" }, label: false %>
+        </div>
+      </div>
+    </div>
+    <div class="d-flex justify-content-end">
+      <a href="<%= admin_story_kanjis_path %>" id="kt_ecommerce_add_product_cancel" class="btn btn-light me-5">Cancel</a>
+      <button type="submit" class="btn btn-primary">
+        <span class="indicator-label">Lưu thay đổi</span>
+      </button>
+    </div>
+  </div>
+<% end %>

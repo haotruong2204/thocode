@@ -19,6 +19,7 @@
 class Kanji < ApplicationRecord
   strip_attributes
 
+  has_one :story_kanji
   belongs_to :level_kanji
 
   ATTRS = [:yin_kun, :meaning, :level_kanji_id, :yin_on, :yin_han].freeze

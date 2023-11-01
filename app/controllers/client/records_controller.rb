@@ -34,6 +34,7 @@ class Client::RecordsController < Client::BaseController
     unless account_signed_in?
       flash[:error] = "Bạn cần đăng nhập để sử dụng tính năng này"
       redirect_to root_path
+      return
     end
 
     if current_account.advanced?

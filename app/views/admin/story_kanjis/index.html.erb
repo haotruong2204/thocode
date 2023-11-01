@@ -1,0 +1,63 @@
+<%= content_for :breadcum_first, "Trang chủ" %>
+<%= content_for :breadcum_first_link, admin_root_path %>
+<%= content_for :breadcum_second, "Cách học Kanji" %>
+
+<div class="d-flex flex-column flex-column-fluid">
+  <div id="kt_app_toolbar" class="app-toolbar py-3 py-lg-0">
+    <div id="kt_app_toolbar_container" class="app-container container-xxl d-flex flex-stack">
+      <div class="page-title d-flex flex-column justify-content-center me-3">
+        <h1 class="page-heading d-flex text-dark fw-bold fs-3 flex-column justify-content-center my-0">
+          Cách học kanji
+        </h1>
+        <%= render "layouts/breadcrumb" %>
+      </div>
+    </div>
+  </div>
+  <div id="kt_app_content" class="app-content flex-column-fluid">
+    <div id="kt_app_content_container" class="app-container container-xxl">
+      <div class="card card-flush">
+        <div class="card-header align-items-center py-5 gap-2 gap-md-5">
+          <div class="card-title">
+            <div class="d-flex align-items-center position-relative my-1">
+              <i class="ki-outline ki-magnifier fs-3 position-absolute ms-5"></i>
+              <%= search_form_for @q, url: admin_story_kanjis_path do |f| %>
+                <%= f.search_field :title_or_content_or_kanji_yin_han_or_kanji_chinese_character_cont, 
+                  class: "form-control form-control-solid w-250px ps-13", placeholder: "Tìm kiếm" %>
+              <% end %>
+            </div>
+          </div>
+
+          <div class="card-toolbar flex-row-fluid justify-content-end gap-5">
+            <a href="<%= new_admin_story_kanji_path %>" class="btn btn-primary" >Thêm câu chuyện</a>
+          </div>
+        </div>
+        <div class="card-body pt-0">
+          <table
+            class="table align-middle table-row-dashed fs-6 gy-5"
+            id="kt_ecommerce_products_table"
+          >
+            <thead>
+              <tr
+                class="text-start text-gray-400 fw-bold fs-7 text-uppercase gs-0"
+              >
+                <th class="min-w-70px">Hán Tự</th>
+                <th class="text-end min-w-100px">Âm Hán</th>
+                <th class="text-end min-w-70px">Tiêu đề</th>
+                <th class="text-end min-w-100px">Nội dung</th>
+                <th class="text-end min-w-100px">Trình độ</th>
+                <th class="text-end min-w-100px">Người đóng góp</th>
+                <th class="text-end min-w-70px"></th>
+              </tr>
+            </thead>
+            <tbody class="fw-semibold text-gray-600">
+              <%= render @story_kanjis %>
+            </tbody>
+          </table>
+          <div class="col-sm-12 col-md-12 d-flex align-items-center justify-content-md-end">
+            <%= render partial: 'shared/pagination', locals: { pagy: @pagy } %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

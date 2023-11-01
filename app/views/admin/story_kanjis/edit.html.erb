@@ -1,0 +1,23 @@
+<%= content_for :breadcum_first, "Trang chủ" %>
+<%= content_for :breadcum_first_link, admin_root_path %>
+<%= content_for :breadcum_second, "Tổng hợp Kanji" %>
+<%= content_for :breadcum_second_link, admin_kanjis_path %>
+<%= content_for :breadcum_third, "Sửa" %>
+
+<div class="d-flex flex-column flex-column-fluid">
+  <div id="kt_app_toolbar" class="app-toolbar py-3 py-lg-0">
+    <div id="kt_app_toolbar_container" class="app-container container-xxl d-flex flex-stack">
+      <div  class="page-title d-flex flex-column justify-content-center me-3">
+        <h1 class="page-heading d-flex text-dark fw-bold fs-3 flex-column justify-content-center my-0">
+          Chỉnh sửa câu chuyện
+        </h1>
+         <%= render "layouts/breadcrumb" %>
+      </div>
+    </div>
+  </div>
+  <div id="kt_app_content" class="app-content flex-column-fluid">
+    <div id="kt_app_content_container" class="app-container container-xxl">
+      <%= render "form" %>
+    </div>
+  </div>
+</div>
