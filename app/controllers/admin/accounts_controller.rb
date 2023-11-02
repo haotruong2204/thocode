@@ -23,6 +23,8 @@ class Admin::AccountsController < Admin::BaseController
           title: "Nâng cấp tài khoản thành công!",
           description: "Chúc bạn có những trải nghiệm thú vị trong hành trình học tiếng Nhật."
         )
+
+        ActionAccountMailer.send_mail_upgrade(@account).deliver_later
       end
       redirect_to admin_accounts_path
     else

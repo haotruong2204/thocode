@@ -1,4 +1,9 @@
 Rails.application.routes.draw do
+  require "sidekiq/web"
+  require "sidekiq-status/web"
+
+  mount Sidekiq::Web => "/sidekiq"
+
   root "client/dashboard#index"
 
   scope module: "client", path: "", as: "" do
