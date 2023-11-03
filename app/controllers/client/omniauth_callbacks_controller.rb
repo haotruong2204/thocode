@@ -20,6 +20,7 @@ class Client::OmniauthCallbacksController < Devise::OmniauthCallbacksController
         title: "Chào mừng bạn đến với hệ thống!",
         description: "Chúc bạn có những trải nghiệm thú vị trong hành trình học tiếng Nhật."
       )
+      ActionAccountMailer.send_email_welcome(@account.email, @account.full_name).deliver_later
     end
     @account.update last_sign_in_at: Time.zone.now
     sign_in_and_redirect @account, event: :authentication

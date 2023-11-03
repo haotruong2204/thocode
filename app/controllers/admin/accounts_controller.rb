@@ -24,7 +24,7 @@ class Admin::AccountsController < Admin::BaseController
           description: "Chúc bạn có những trải nghiệm thú vị trong hành trình học tiếng Nhật."
         )
 
-        ActionAccountMailer.send_mail_upgrade(@account).deliver_later
+        ActionAccountMailer.send_mail_upgrade(@account.email, @account.full_name).deliver_later
       end
       redirect_to admin_accounts_path
     else
