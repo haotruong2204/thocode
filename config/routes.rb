@@ -13,6 +13,9 @@ Rails.application.routes.draw do
       member do
         get :hira_kata
         get :radical
+        get :hira_kata_export_pdf
+        get :radical_export_pdf
+        get :kanji_export_pdf
       end
     end
     resources :accounts, only: [:show] do

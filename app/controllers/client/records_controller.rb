@@ -1,10 +1,11 @@
 # frozen_string_literal: true
 
 class Client::RecordsController < Client::BaseController
-  before_action :render_service, only: [:show, :hira_kata, :radical]
+  before_action :render_service,
+    only: [:show, :hira_kata, :radical, :hira_kata_export_pdf, :radical_export_pdf, :kanji_export_pdf]
   before_action :set_record, only: :show
 
-  def show
+  def show # rubocop:disable Metrics/PerceivedComplexity
     if @record.hiragana? || @record.katakana?
       if @record.kanji_list.include?("じ") || @record.kanji_list.include?("ジ")
         redirect_to hira_kata_record_path(@record)
@@ -24,13 +25,7 @@ class Client::RecordsController < Client::BaseController
     end
   end
 
-  def hira_kata
-  end
-
-  def radical
-  end
-
-  def create
+  def create # rubocop:disable Metrics/MethodLength,Metrics/PerceivedComplexity
     unless account_signed_in?
       flash[:error] = "Bạn cần đăng nhập để sử dụng tính năng này"
       redirect_to root_path
@@ -79,6 +74,37 @@ class Client::RecordsController < Client::BaseController
       flash[:error] = "Bạn cần nâng cấp tài khoản để sử dụng tùy chọn này."
       redirect_to root_path
     end
+  end
+
+  def hira_kata
+  end
+
+  def radical
+  end
+
+  def hira_kata_export_pdf
+    respond_to do |format|
+      format.html
+      format.pdf do
+        render pdf: "[Luyenkanji.com]_#{Time.zone.now.strftime('%Y%m%d%H%M')}_#{@record.type_record}",
+          template: "client/records/hira_kata_export_pdf",
+          formats: [:html],
+          disposition: :attachment,
+          layout: "pdf"
+      end
+    end
+  end
+
+  def radical_export_pdf
+    render pdf: "[Luyenkanji.com]_#{Time.zone.now.strftime('%Y%m%d%H%M')}_#{@record.type_record}",
+      disposition: "attachment",
+      layout: "pdf"
+  end
+
+  def kanji_export_pdf
+    render pdf: "[Luyenkanji.com]_#{Time.zone.now.strftime('%Y%m%d%H%M')}_#{@record.type_record}",
+      disposition: "attachment",
+      layout: "pdf"
   end
 
   private

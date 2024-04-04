@@ -44,14 +44,13 @@
                 <% end %>
               </ul>
             <% end %>
-
-            <a href="#" class="btn btn-primary">
-              <i class="ki-duotone ki-file-down fs-2">
-                <span class="path1"></span>
-                <span class="path2"></span>
-              </i>
-              Tải xuống PDF
-            </a>
+              <%= link_to hira_kata_export_pdf_record_path(@record, format: :pdf), target: "_blank", class: "btn btn-primary" do %>
+                <i class="ki-duotone ki-file-down fs-2">
+                  <span class="path1"></span>
+                  <span class="path2"></span>
+                </i>
+                Tải xuống PDF
+              <% end %>
           </div>
         </div>
     </div>

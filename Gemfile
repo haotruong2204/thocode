@@ -108,3 +108,10 @@ gem "ransack"
 # background jobs
 gem "sidekiq", "~> 6.5", ">= 6.5.7"
 gem "sidekiq-status"
+
+gem "rack-cors"
+
+gem "wicked_pdf"
+gem "wkhtmltopdf-binary"
+
+gem "docraptor"
